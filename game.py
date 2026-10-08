@@ -4,8 +4,21 @@ from puzzle import Puzzle
 
 class SlidingPuzzle:
     def __init__(self):
-        self.size = 4
+        print("Choose puzzle size:")
+        print("3 - 3x3")
+        print("4 - 4x4")
+        print("5 - 5x5")
+
+        choice = input("Enter your choice (3/4/5): ").strip()
+
+        if choice in ("3", "4", "5"):
+            self.size = int(choice)
+        else:
+            print("Invalid choice. Starting with the default 4x4 board.")
+            self.size = 4
+
         self.puzzle = Puzzle(self.size)
+
         self.moves = 0
         self.started = time.monotonic()
 
